@@ -1,0 +1,74 @@
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--bg-secondary);
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
+.logoDesktop {
+    display: none;
+    height: 20px;
+}
+
+.logoMobile {
+    height: 24px;
+}
+
+.desktopNav {
+    display: none;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.burgerBtn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 22px;
+    line-height: 1;
+}
+
+.mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    padding: 16px 20px;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .logoDesktop {
+        display: block;
+    }
+
+    .logoMobile {
+        display: none;
+    }
+
+    .desktopNav {
+        display: block;
+    }
+
+    .burgerBtn {
+        display: none;
+    }
+}
+
+@media (min-width: 1440px) {
+    .header {
+        padding: 20px 40px;
+    }
+}

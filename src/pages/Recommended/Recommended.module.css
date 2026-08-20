@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media (min-width: 1024px) {
+    .wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,17 @@
+.nav {
+    display: flex;
+    gap: 24px;
+}
+
+.link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--color-blue);
+}

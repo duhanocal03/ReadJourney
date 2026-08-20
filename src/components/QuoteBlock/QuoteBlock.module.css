@@ -1,0 +1,22 @@
+.card {
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 22px;
+}
+
+.quote {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.quote strong {
+    color: var(--text-primary);
+}
