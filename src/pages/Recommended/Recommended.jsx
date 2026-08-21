@@ -21,6 +21,8 @@ const Recommended = () => {
   const [adding, setAdding] = useState(false);
 
   useEffect(() => {
+    let ignore = false;
+
     const fetchBooks = async () => {
       try {
         const params = { page, limit: LIMIT };
@@ -29,6 +31,8 @@ const Recommended = () => {
 
         const data = await getRecommendedBooks(params);
         const results = Array.isArray(data) ? data : data.results || [];
+
+        if (ignore) return;
         setBooks(results);
 
         if (!Array.isArray(data) && data.totalPages) {
@@ -37,12 +41,19 @@ const Recommended = () => {
           setTotalPages(1);
         }
       } catch (error) {
-        toast.error(
-          error?.response?.data?.message || "Kitaplar yüklenirken hata oluştu"
-        );
+        if (!ignore) {
+          toast.error(
+            error?.response?.data?.message || "Kitaplar yüklenirken hata oluştu"
+          );
+        }
       }
     };
+
     fetchBooks();
+
+    return () => {
+      ignore = true;
+    };
   }, [page, filters]);
 
   const handleApplyFilters = (newFilters) => {
