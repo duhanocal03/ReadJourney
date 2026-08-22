@@ -7,7 +7,9 @@ import MiniRecommended from "../../components/MiniRecommended/MiniRecommended";
 import MyLibraryBooks from "../../components/MyLibraryBooks/MyLibraryBooks";
 import BookModal from "../../components/BookModal/BookModal";
 import BookDetails from "../../components/BookModal/BookDetails";
+import GoodJobMessage from "../../components/BookModal/GoodJobMessage";
 import { getOwnBooks, removeBook } from "../../api/books";
+import { isFirstBookAdd, markFirstBookAdded } from "../../utils/firstBook";
 import css from "./Library.module.css";
 
 const Library = () => {
@@ -16,6 +18,7 @@ const Library = () => {
   const [status, setStatus] = useState("all");
   const [selectedBook, setSelectedBook] = useState(null);
   const [reloadKey, setReloadKey] = useState(0);
+  const [showGoodJob, setShowGoodJob] = useState(false);
 
   useEffect(() => {
     let ignore = false;
@@ -44,6 +47,14 @@ const Library = () => {
 
   const refreshBooks = () => setReloadKey((key) => key + 1);
 
+  const handleBookAdded = () => {
+    if (isFirstBookAdd()) {
+      markFirstBookAdded();
+      setShowGoodJob(true);
+    }
+    refreshBooks();
+  };
+
   const handleDelete = async (id) => {
     try {
       await removeBook(id);
@@ -71,7 +82,7 @@ const Library = () => {
   return (
     <div className={css.wrapper}>
       <Dashboard>
-        <AddBookForm onAdded={refreshBooks} />
+        <AddBookForm onAdded={handleBookAdded} />
         <MiniRecommended onBookClick={setSelectedBook} />
       </Dashboard>
 
@@ -91,6 +102,12 @@ const Library = () => {
             actionLabel="Start reading"
             onAction={handleStartReading}
           />
+        </BookModal>
+      )}
+
+      {showGoodJob && (
+        <BookModal onClose={() => setShowGoodJob(false)}>
+          <GoodJobMessage />
         </BookModal>
       )}
     </div>

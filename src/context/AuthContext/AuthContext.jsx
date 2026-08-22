@@ -24,6 +24,8 @@ export const AuthProvider = ({ children }) => {
       } catch {
         localStorage.removeItem("token");
         clearAuthHeader();
+        setToken(null);
+        setUser(null);
       } finally {
         setIsRefreshing(false);
       }
@@ -31,11 +33,19 @@ export const AuthProvider = ({ children }) => {
     restoreSession();
   }, []);
 
-  const login = ({ user: loggedInUser, token: newToken }) => {
+  const login = async ({ user: loggedInUser, token: newToken }) => {
     localStorage.setItem("token", newToken);
     setAuthHeader(newToken);
-    setUser(loggedInUser);
     setToken(newToken);
+    setUser(loggedInUser);
+
+    try {
+      const fullUser = await getCurrentUser();
+      console.log("getCurrentUser() sonucu:", fullUser);
+      setUser(fullUser);
+    } catch (err) {
+      console.error("getCurrentUser() hatası:", err?.response?.status, err?.response?.data, err);
+    }
   };
 
   const logout = () => {

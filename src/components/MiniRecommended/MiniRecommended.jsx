@@ -48,7 +48,8 @@ const MiniRecommended = ({ onBookClick }) => {
       </ul>
 
       <Link to="/recommended" className={css.link}>
-        Home <span aria-hidden="true">→</span>
+        <span className={css.linkText}>Home</span>
+        <span aria-hidden="true">→</span>
       </Link>
     </div>
   );

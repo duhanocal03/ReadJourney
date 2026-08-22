@@ -1,5 +1,5 @@
 .card {
-    background: var(--bg-secondary);
+    background: var(--bg-card);
     border-radius: 20px;
     padding: 20px;
 }
@@ -54,5 +54,8 @@
     font-size: 13px;
     font-weight: 600;
     color: var(--text-primary);
+}
+
+.linkText {
     text-decoration: underline;
 }

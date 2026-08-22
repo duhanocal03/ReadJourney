@@ -27,7 +27,7 @@ const Login = () => {
   const onSubmit = async (formValues) => {
     try {
       const data = await loginUser(formValues);
-      login(data);
+      await login(data);
       navigate("/recommended");
     } catch (error) {
       const message =

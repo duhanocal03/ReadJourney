@@ -1,5 +1,5 @@
 .card {
-    background: var(--bg-secondary);
+    background: var(--bg-card);
     border-radius: 20px;
     padding: 20px;
     display: flex;

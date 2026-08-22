@@ -1,0 +1,144 @@
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 20px 10px;
+}
+
+.emptyIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.emptyText {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    max-width: 220px;
+}
+
+.heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.entry {
+    position: relative;
+    padding: 12px 36px 12px 14px;
+    background: var(--bg-input);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.deleteBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.deleteBtn:hover {
+    color: var(--color-error);
+}
+
+.entryTop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--color-grey-100);
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.entryDate {
+    font-size: 12px;
+    color: var(--text-secondary);
+    flex: 1;
+}
+
+.entryPages {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.entryBottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.entryLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.entryPercent {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.entryDuration {
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.entryRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 90px;
+}
+
+.progressBar {
+    width: 100%;
+    height: 5px;
+    border-radius: 4px;
+    background: var(--color-grey-200);
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--color-green);
+    border-radius: 4px;
+}
+
+.entrySpeed {
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-align: right;
+}

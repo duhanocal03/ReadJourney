@@ -7,7 +7,9 @@ import QuoteBlock from "../../components/QuoteBlock/QuoteBlock";
 import RecommendedBooks from "../../components/RecommendedBooks/RecommendedBooks";
 import BookModal from "../../components/BookModal/BookModal";
 import BookDetails from "../../components/BookModal/BookDetails";
+import GoodJobMessage from "../../components/BookModal/GoodJobMessage";
 import { getRecommendedBooks, addRecommendedBookToLibrary } from "../../api/books";
+import { isFirstBookAdd, markFirstBookAdded } from "../../utils/firstBook";
 import css from "./Recommended.module.css";
 
 const LIMIT = 10;
@@ -19,6 +21,7 @@ const Recommended = () => {
   const [filters, setFilters] = useState({ title: "", author: "" });
   const [selectedBook, setSelectedBook] = useState(null);
   const [adding, setAdding] = useState(false);
+  const [showGoodJob, setShowGoodJob] = useState(false);
 
   useEffect(() => {
     let ignore = false;
@@ -66,8 +69,13 @@ const Recommended = () => {
     setAdding(true);
     try {
       await addRecommendedBookToLibrary(selectedBook._id);
-      toast.success("Kitap kütüphanene eklendi");
       setSelectedBook(null);
+      if (isFirstBookAdd()) {
+        markFirstBookAdded();
+        setShowGoodJob(true);
+      } else {
+        toast.success("Kitap kütüphanene eklendi");
+      }
     } catch (error) {
       toast.error(
         error?.response?.data?.message || "Kitap eklenirken hata oluştu"
@@ -102,6 +110,12 @@ const Recommended = () => {
             onAction={handleAddToLibrary}
             actionLoading={adding}
           />
+        </BookModal>
+      )}
+
+      {showGoodJob && (
+        <BookModal onClose={() => setShowGoodJob(false)}>
+          <GoodJobMessage />
         </BookModal>
       )}
     </div>

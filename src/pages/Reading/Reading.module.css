@@ -1,0 +1,128 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: var(--bg-panel);
+    border-radius: 24px;
+    padding: 20px;
+}
+
+@media (min-width: 1024px) {
+    .wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 24px;
+    }
+}
+
+.progressCard {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.progressTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+}
+
+.section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    align-self: flex-start;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.coverWrapper {
+    width: 180px;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-card);
+    margin-bottom: 12px;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.coverPlaceholder {
+    width: 100%;
+    height: 100%;
+    background: var(--color-grey-300);
+}
+
+.bookTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.bookAuthor {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.bigBtn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    background: #e02424;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigBtn:disabled {
+    opacity: 0.6;
+}
+
+.bigBtnStop {
+    background: var(--color-grey-200);
+}
+
+.stopIcon {
+    width: 18px;
+    height: 18px;
+    background: var(--text-primary);
+    border-radius: 3px;
+}
+
+.noBook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.noBookLink {
+    color: var(--text-primary);
+    text-decoration: underline;
+    font-weight: 600;
+}

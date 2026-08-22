@@ -1,12 +1,6 @@
 import LibraryBookCard from "../LibraryBookCard/LibraryBookCard";
+import StatusSelect from "../StatusSelect/StatusSelect";
 import css from "./MyLibraryBooks.module.css";
-
-const STATUS_OPTIONS = [
-  { value: "all", label: "All books" },
-  { value: "unread", label: "Unread" },
-  { value: "in-progress", label: "In progress" },
-  { value: "done", label: "Done" },
-];
 
 const MyLibraryBooks = ({
   books,
@@ -20,18 +14,7 @@ const MyLibraryBooks = ({
     <section className={css.section}>
       <div className={css.headerRow}>
         <h1 className={css.title}>My library</h1>
-
-        <select
-          className={css.select}
-          value={status}
-          onChange={(e) => onStatusChange(e.target.value)}
-        >
-          {STATUS_OPTIONS.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
+        <StatusSelect value={status} onChange={onStatusChange} />
       </div>
 
       {books.length === 0 ? (

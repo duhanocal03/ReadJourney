@@ -22,7 +22,8 @@ const InfoBlock = () => {
         </li>
       </ol>
       <Link to="/library" className={css.link}>
-        My library <span aria-hidden="true">→</span>
+        <span className={css.linkText}>My library</span>
+        <span aria-hidden="true">→</span>
       </Link>
     </div>
   );
